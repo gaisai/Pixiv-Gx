@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "pixiv-gx",
-  "short_name": "pixivの画像PDF化",
-  "description": "pixivの画像をPDF化します",
+  "short_name": "Pixivの作品をPDF形式で一括ダウンロード",
+  "description": "Pixivの作品をPDF形式で一括ダウンロード",
   "version": "1.0.0",
   "icons": {
     "16": "./16.png",

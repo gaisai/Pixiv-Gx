@@ -125,9 +125,11 @@ button {
   color: black;
   border: 1px solid gray;
   border-radius: 3px;
+  background-color: #e23126;
+  color: white;
   &:hover {
-    background-color: #e23126;
-    color: white;
+    background-color: white;
+    color: black;
   }
 }
 </style>
