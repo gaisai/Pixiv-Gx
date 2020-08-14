@@ -1,0 +1,53 @@
+{
+  "manifest_version": 2,
+  "name": "pixiv-gx",
+  "short_name": "pixivの画像PDF化",
+  "description": "pixivの画像をPDF化します",
+  "version": "1.0.0",
+  "icons": {
+    "16": "./16.png",
+    "48": "./48.png",
+    "128": "./128.png"
+  },
+  "browser_action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.pixiv.net/*/*",
+        "https://www.pixiv.net/*",
+        "https://i.pximg.net/*/*",
+        "https://i.pximg.net/*",
+        "https://i.pximg.net/img-master/img/**",
+        "https://www.pixiv.net/artworks/*"
+      ],
+      "js": [
+        "./content-script.js",
+        "./popup.js"
+      ],
+      "css": [
+        "./content-script.css",
+        "./popup.css"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "./background.js"
+    ]
+  },
+  "permissions": [
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "https://www.pixiv.net/*/*",
+    "https://i.pximg.net/*/*"
+  ],
+  "web_accessible_resources": [
+    "*.png",
+    "*.jpg",
+    "*.gif"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
