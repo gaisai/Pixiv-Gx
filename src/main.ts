@@ -4,8 +4,10 @@ import App from './App.vue';
 Vue.config.productionTip = false;
 
 chrome.runtime.onMessage.addListener(
-  function (message, sender, callback) {
-    if (message === "hashchange") {
+  async function (message, sender, callback) {
+    console.log(message);
+    if (message == "hashchange") {
+      await new Promise(r => setTimeout(() => r(), 1000));
       const app = document.querySelector("#app");
       if (!app) {
         appendApp();
@@ -16,6 +18,18 @@ chrome.runtime.onMessage.addListener(
 
 window.onload = async () => {
   appendApp();
+  // chrome.runtime.onMessage.addListener(
+  //   async function (message, sender, callback) {
+  //     console.log(message);
+  //     if (message == "hashchange") {
+  //       await new Promise(r => setTimeout(() => r(), 1000));
+  //       const app = document.querySelector("#app");
+  //       if (!app) {
+  //         appendApp();
+  //       }
+  //     }
+  //   }
+  // );
 };
 
 function appendApp() {
