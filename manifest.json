@@ -39,10 +39,7 @@
     ]
   },
   "permissions": [
-    "storage",
-    "webRequest",
     "tabs",
-    "webRequestBlocking",
     "https://www.pixiv.net/*/*",
     "https://i.pximg.net/*/*"
   ],
