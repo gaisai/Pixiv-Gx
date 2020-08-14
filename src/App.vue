@@ -15,9 +15,7 @@ import ChromeExImg from "@/components/ChromeExImg.vue";
   },
 })
 export default class App extends Vue {
-  public mounted() {
-    // this.clickAllView();
-  }
+  public mounted() {}
 
   public getPdfTitle() {
     const date = Date.now();
@@ -68,7 +66,7 @@ export default class App extends Vue {
             doc.addImage(
               base64data as string,
               "jpg",
-              (pageWidth - pageHeight / asp )/2,
+              (pageWidth - pageHeight / asp) / 2,
               y,
               pageHeight / asp,
               pageHeight
@@ -78,7 +76,7 @@ export default class App extends Vue {
               base64data as string,
               "jpg",
               x,
-              (pageHeight - pageWidth * asp)/2,
+              (pageHeight - pageWidth * asp) / 2,
               pageWidth,
               pageWidth * asp
             );

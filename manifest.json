@@ -29,7 +29,8 @@
       "css": [
         "./content-script.css",
         "./popup.css"
-      ]
+      ],
+      "run_at": "document_start"
     }
   ],
   "background": {
@@ -40,6 +41,7 @@
   "permissions": [
     "storage",
     "webRequest",
+    "tabs",
     "webRequestBlocking",
     "https://www.pixiv.net/*/*",
     "https://i.pximg.net/*/*"
