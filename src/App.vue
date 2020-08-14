@@ -68,7 +68,7 @@ export default class App extends Vue {
             doc.addImage(
               base64data as string,
               "jpg",
-              x,
+              (pageWidth - pageHeight / asp )/2,
               y,
               pageHeight / asp,
               pageHeight
@@ -78,7 +78,7 @@ export default class App extends Vue {
               base64data as string,
               "jpg",
               x,
-              y,
+              (pageHeight - pageWidth * asp)/2,
               pageWidth,
               pageWidth * asp
             );
