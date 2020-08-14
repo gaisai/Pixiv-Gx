@@ -30,7 +30,7 @@ export default class App extends Vue {}
   text-align: center;
   h1 {
     font-size: 20px;
-    color: #3cb6e3;
+    color: red;
     font-weight: bold;
     text-align: center;
   }
