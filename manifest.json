@@ -3,7 +3,7 @@
   "name": "pixiv-gx",
   "short_name": "Pixivの作品をPDF形式で一括ダウンロード",
   "description": "Pixivの作品をPDF形式で一括ダウンロード",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "icons": {
     "16": "./16.png",
     "48": "./48.png",
