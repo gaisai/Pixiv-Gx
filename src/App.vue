@@ -8,7 +8,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import { jsPDF } from "jspdf";
 import ChromeExImg from "@/components/ChromeExImg.vue";
-
+ 
 @Component({
   components: {
     ChromeExImg,
