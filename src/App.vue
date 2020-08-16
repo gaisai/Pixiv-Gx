@@ -20,37 +20,11 @@ import html2canvas from 'html2canvas';
 })
 export default class App extends Vue {
   public mounted() {
-    console.log("< monted >")
+    console.log("< mounted >")
     //this.check();
   }
-/*
-  //対象のチェック
-  public async check() {
-    console.log("< check >");
-    
-    //URIから対象をチェック
-    const uri = location.href;
-    console.log("base URI:"+uri);
-
-    //対象が画像
-    if( uri.indexOf("artworks") >= 0 ){
-      console.log("This is artworks!")
-      
-      const id0 = document.getElementById("0");
-      console.log(id0);
 
 
-
-      //開発時タイムスタンプ付与
-      this.dev_add_timestump();
-
-
-      return;
-
-    
-    }
-  }
-*/
   //画像のダウンロード
   public async download_images() {
     console.log("< download_images >")
@@ -120,13 +94,6 @@ export default class App extends Vue {
 
 
 
-
-  public dev_add_timestump(){
-    let ver_in_bu = document.getElementById("bu_button");
-    let date = new Date();
-    ver_in_bu.innerHTML += +" "+ date.getMonth() +"-"+ date.getDate() +"-"+ date.getHours() +"-"+ date.getMinutes() +"-"+ date.getSeconds();
-    console.log("timestump:"+ver_in_bu.innerHTML)
-  }
 
 
   public getPdfTitle() {
