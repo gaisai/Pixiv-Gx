@@ -20,11 +20,6 @@ window.onload = async () => {
 }
 
 
-window.onhashchange = async function() { 
-  await new Promise(r => setTimeout(() => r(), 1000));
-  console.log("main.ts < window.onhashchange >");
-  appendApp();
-} 
 
 
 
@@ -33,7 +28,7 @@ function appendApp(){
   const app = document.querySelector("#app");
   const url = location.href
 
-  //画像ページの時
+  //対象が画像ページの時
   if( url.indexOf("www.pixiv.net/artworks/") >= 0 ){    
     const img = document.querySelectorAll("div[role=presentation] img")
     console.log("This is artwork. => img num:"+img.length)
