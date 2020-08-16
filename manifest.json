@@ -15,12 +15,8 @@
   "content_scripts": [
     {
       "matches": [
-        "https://www.pixiv.net/*/*",
-        "https://www.pixiv.net/*",
-        "https://i.pximg.net/*/*",
-        "https://i.pximg.net/*",
         "https://i.pximg.net/img-master/img/**",
-        "https://www.pixiv.net/artworks/*"
+        "https://www.pixiv.net/artworks/**"
       ],
       "js": [
         "./content-script.js",
