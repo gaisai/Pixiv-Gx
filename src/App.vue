@@ -1,8 +1,9 @@
+
 <template>
+
   <div id="app">
     <button id="bu_button" @click="download_images();">⬇ PDFダウンロード</button>
   </div>
-  
 
 </template>
 
