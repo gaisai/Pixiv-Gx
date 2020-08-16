@@ -1,5 +1,7 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <button id="bu_button" @click="download_images();">⬇ PDFダウンロード</button>
+  </div>
   
 
 </template>
@@ -17,54 +19,39 @@ import html2canvas from 'html2canvas';
 })
 export default class App extends Vue {
   public mounted() {
+    console.log("< monted >")
     this.check();
   }
 
-  public dev_add_timestump(){
-    let ver_in_bu = document.getElementById("bu_button");
-    let date = new Date();
-    ver_in_bu.innerHTML += +" "+ date.getMonth() +"-"+ date.getDate() +"-"+ date.getHours() +"-"+ date.getMinutes() +"-"+ date.getSeconds();
-    console.log("timestump:"+ver_in_bu.innerHTML)
-  }
-
-
-  public getPdfTitle() {
-    const date = Date.now();
-    return (
-      (document.querySelector("figcaption h1")?.textContent ?? date) + ".pdf"
-    );
-  }
-
+  //対象のチェック
   public async check() {
-    console.log("チェック開始");
+    console.log("< check >");
     
     //URIから対象をチェック
-    const uri = this.getHTMLpElements()[0].baseURI;
+    const uri = location.href;
     console.log("base URI:"+uri);
 
     //対象が画像
     if( uri.indexOf("artworks") >= 0 ){
       console.log("This is artworks! call getImageEl")
       
-      //ボタン設置
-      let dl_button = document.getElementById("app")
-      dl_button.innerHTML = '<button id="bu_button" @click="download_images">⬇ PDFダウンロード</button>'
-      console.log(dl_button.innerHTML)
-      
       //開発時タイムスタンプ付与
       this.dev_add_timestump();
-      
-    //対象が小説
-    }else if( uri.indexOf("novel") >= 0 ){
-      console.log("This is novels! call getnovelEl");
-    //対象が不明
+
+      return;
+
+    //対象外
     }else{
       console.log("What is this?")
+      let app = document.getElementById("app");
+      app.innerHTML = "";
     }
 
   }
 
+  //画像のダウンロード
   public async download_images() {
+    console.log("< download_images >")
 
     //ダウンロード対象をPDF作成
     const doc = new jsPDF("p", "mm", "a4");
@@ -102,12 +89,12 @@ export default class App extends Vue {
         var base64data = reader.result;
         const img = new Image();
 
+        //imgサイズ調整
         img.onload = function () {
           const asp = img.height / img.width;
           const pageWidth = doc.internal.pageSize.getWidth();
           const pageHeight = doc.internal.pageSize.getHeight();
         
-          //imgサイズ調整
           if (pageWidth * asp > pageHeight) {
             doc.addImage( base64data as string, "jpg",
               (pageWidth - pageHeight / asp) / 2, y,
@@ -120,6 +107,7 @@ export default class App extends Vue {
             );
           };
         };
+
         img.src = base64data as string;
       };
     }
@@ -129,30 +117,34 @@ export default class App extends Vue {
 
 
 
+
+
+  public dev_add_timestump(){
+    let ver_in_bu = document.getElementById("bu_button");
+    let date = new Date();
+    ver_in_bu.innerHTML += +" "+ date.getMonth() +"-"+ date.getDate() +"-"+ date.getHours() +"-"+ date.getMinutes() +"-"+ date.getSeconds();
+    console.log("timestump:"+ver_in_bu.innerHTML)
+  }
+
+
+  public getPdfTitle() {
+    const date = Date.now();
+    return (
+      (document.querySelector("figcaption h1")?.textContent ?? date) + ".pdf"
+    );
+  }
+
+
   public getHTMLImageElements() {
     return [
       ...document.querySelectorAll("div[role=presentation] img"),
     ] as HTMLImageElement[];
   }
 
-  public getHTMLpElements() {
-    return [
-      ...document.querySelectorAll('p'),
-    ];
-  }
 
-
-
-  public getBase64Image(img: HTMLImageElement) {
-    var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    var ctx = canvas.getContext("2d");
-    ctx?.drawImage(img, 0, 0);
-    var dataURL = canvas.toDataURL("image/png");
-    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-  }
 }
+
+
 </script>
 
 <style lang="scss">
