@@ -17,18 +17,18 @@ window.onload = async () => {
   await new Promise(r => setTimeout(() => r(), 1000));
   console.log("main.ts < window.onload >");
   appendApp();
-  }
-};
+}
+
 
 window.onhashchange = async function() { 
   await new Promise(r => setTimeout(() => r(), 1000));
   console.log("main.ts < window.onhashchange >");
   appendApp();
-  } 
-}
+} 
 
 
-function appendApp() {
+
+function appendApp(){
   console.log("main.ts < appendApp:"+location.href+" >")
   const app = document.querySelector("#app");
   const url = location.href
@@ -39,6 +39,7 @@ function appendApp() {
     console.log("This is artwork. => img num:"+img.length)
     //画像枚数が１枚以上の場合のみダウンロード機能を追加
     if(img.length > 0 ){
+      console.log(img);
       if (!app) { 
         console.log("not exist app. => add app")
         const el = document.querySelector("aside");
@@ -74,5 +75,7 @@ function delete_app(){
       console.log("exist app. => Delete app");
       app.remove();
       console.log(app);
+    }else{
+      console.log("not exist app.");
     }
 }
