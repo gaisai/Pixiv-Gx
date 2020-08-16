@@ -16,6 +16,14 @@ chrome.runtime.onMessage.addListener(
   }
 );
 
+window.onload = async () => {
+  await new Promise(r => setTimeout(() => r(), 1000));
+  const app = document.querySelector("#app");
+  if (!app) {
+    appendApp();
+  }
+};
+
 window.onhashchange = async function() { 
   await new Promise(r => setTimeout(() => r(), 1000));
   const app = document.querySelector("#app");

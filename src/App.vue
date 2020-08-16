@@ -21,9 +21,9 @@ import html2canvas from 'html2canvas';
 export default class App extends Vue {
   public mounted() {
     console.log("< monted >")
-    this.check();
+    //this.check();
   }
-
+/*
   //対象のチェック
   public async check() {
     console.log("< check >");
@@ -34,22 +34,23 @@ export default class App extends Vue {
 
     //対象が画像
     if( uri.indexOf("artworks") >= 0 ){
-      console.log("This is artworks! call getImageEl")
+      console.log("This is artworks!")
       
+      const id0 = document.getElementById("0");
+      console.log(id0);
+
+
+
       //開発時タイムスタンプ付与
       this.dev_add_timestump();
 
+
       return;
 
-    //対象外
-    }else{
-      console.log("What is this?")
-      let app = document.getElementById("app");
-      app.innerHTML = "";
+    
     }
-
   }
-
+*/
   //画像のダウンロード
   public async download_images() {
     console.log("< download_images >")
