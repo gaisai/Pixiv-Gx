@@ -1,0 +1,17 @@
+
+■なんかバージョンの相違でエラーが出る時
+rm -rf node_module
+curl -L git.io/nodebrew | perl - setup
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+nodebrew install latest
+nodebrew use latest
+npm install
+npm run dev 
+
+
+■アップデート
+npm run build
+npm run zip
+以上でreleaseにパッケージができるが名前がデフォなのでリネームする．
+
+

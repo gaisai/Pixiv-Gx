@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "pixiv-gx",
+  "name": "Pixiv-Downloader-Gx",
   "short_name": "Pixivの作品をPDF形式で一括ダウンロード",
   "description": "Pixivの作品をPDF形式で一括ダウンロード",
   "version": "1.0.1",
